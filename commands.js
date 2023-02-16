@@ -3,10 +3,6 @@ import { Command } from 'commander';
 
 const program = new Command();
 
-// program.command('help').action(() => {
-// 	console.log('this is the help');
-// });
-
 program.addHelpText(
 	'after',
 	`
