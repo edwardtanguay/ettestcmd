@@ -30,7 +30,7 @@ const questions = [
 			'Vue.js',
 			'Angular',
 			new inquirer.Separator(),
-			'Next.js - https://starters.tanguay.eu/list/nextJsMenuTypeScriptUsecontextTailwind',
+			'Next.js',
 			'Svelte'
 		],
 		default: 'Next.js',
@@ -49,8 +49,7 @@ const questions = [
 		choices: ['useState', 'useEffect', 'useContext', 'useReducer'],
 		message: 'Features:',
 		when: (answers) => {
-			const fw = answers['framework'];
-			return (fw.startsWith('React') || fw.startsWith('Next'));
+			return (['React', 'Next.js'].includes(answers['framework']));
 		}
 	},
 	{
