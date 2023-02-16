@@ -1,4 +1,4 @@
-# ettest
+# ettestcmd
 
 This is a test command-line tool to test functionality of command-line libraries such as Commander and Inquirer within the npm environment.
 
@@ -15,13 +15,13 @@ This is a test command-line tool to test functionality of command-line libraries
 Go to the dektop and install globally
 
 ```bash
-  npm i -g ettest
+  npm i -g ettestcmd
 ```
 
 start cli with command
 
 ```bash
-  ettest
+  ettestcmd
 ```
 
 change to project directory
