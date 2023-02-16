@@ -15,7 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.2.0",
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "inquirer": "^9.1.4"
   },
   "repository": {
     "type": "git",
