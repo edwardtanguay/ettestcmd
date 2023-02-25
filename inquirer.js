@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import chalk from 'chalk';
 
 console.log('');
-banner('Welcome to dpod, for help see: https://tanguay.eu', 70);
+banner('Welcome to dpod, for more info: https://tanguay.eu', 70);
 console.log('');
 
 const numberValidator = async (input) => {
@@ -15,12 +15,19 @@ const numberValidator = async (input) => {
 	return true;
 };
 
-
 const questions = [
 	{
 		type: 'input',
 		name: 'projectName',
-		message: 'Project Name:'
+		message: 'Project Name:',
+		validate: async (input) => {
+			if (input.trim() === '') {
+				console.log(' <-- project name is required');
+				return false;
+			} else {
+				return true;
+			}
+		}
 	},
 	{
 		type: 'list',
@@ -60,7 +67,7 @@ const questions = [
 	},
 	{
 		type: 'number',
-		name: 'num',
+		name: 'numberOfPages',
 		message: 'How many pages:',
 		validate: numberValidator,
 		filter: (input) => {
@@ -79,14 +86,14 @@ console.log('ANSWERS', answers);
 
 function banner(text, width = 100) {
 	text = ` ${text} `;
-	console.log(chalk.bgHex('#333').hidden('x'.repeat(width)));
+	console.log(chalk.bgYellowBright.hidden('x'.repeat(width)));
 	const leftSideWidth = width / 2 - text.length / 2;
 	let rightSideWidth = width / 2 - text.length / 2;
 	// pad when odd-numbered length of text
 	if (text.length % 2 === 1) {
 		rightSideWidth++;
 	}
-	const leftSideSpace = chalk.bgHex('#333').hidden('x'.repeat(leftSideWidth));
+	const leftSideSpace = chalk.bgHex('#000000').hidden('x'.repeat(leftSideWidth));
 	const rightSideSpace = chalk
 		.bgHex('#333')
 		.hidden('x'.repeat(rightSideWidth));

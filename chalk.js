@@ -13,9 +13,21 @@ console.log(
 		)} and ${chalk.yellow('functional programming')}.`
 	)
 );
+const barBackgroundColor = chalk.hex('#000');
+const barForegroundColor = chalk.hex('#b61e13');
 console.log(
 	chalk.blue(
-		`Please ${chalk.red.bold('read the instructions')} before you proceed.`
+		`Please ${barForegroundColor('read the instructionsbbb')} before you proceed.`
+	)
+);
+console.log(
+	chalk.blue(
+		`This is a bar: ${chalk.bgHex('#000').hex('#000').bold('xxxxxxxx')} : in the middle of text.`
+	)
+);
+console.log(
+	chalk.blue(
+		`Please ${chalk.gray.bgGray('this is red')} before you proceed.`
 	)
 );
 console.log(
@@ -53,16 +65,16 @@ function separator(title) {
 }
 
 function banner(text, width = 100) {
-	console.log(chalk.bgHex('#333').hidden('x'.repeat(width)));
+	console.log(chalk.bgGray.gray('x'.repeat(width)));
 	const leftSideWidth = width / 2 - text.length / 2;
 	let rightSideWidth = width / 2 - text.length / 2;
 	// pad when odd-numbered length of text
 	if (text.length % 2 === 1) {
 		rightSideWidth++;
 	}
-	const leftSideSpace = chalk.bgHex('#333').hidden('x'.repeat(leftSideWidth));
-	const rightSideSpace = chalk.bgHex('#333').hidden('x'.repeat(rightSideWidth));
-	const smartText = chalk.bgHex('#333').yellow(text);
+	const leftSideSpace = chalk.bgGray.gray.hidden('x'.repeat(leftSideWidth));
+	const rightSideSpace = chalk.bgGray.gray.hidden('x'.repeat(rightSideWidth));
+	const smartText = chalk.bgGray.gray.yellow(text);
 	console.log(leftSideSpace + smartText + rightSideSpace);
-	console.log(chalk.bgHex('#333').hidden('x'.repeat(width)));
+	console.log(chalk.bgGray.gray.hidden('x'.repeat(width)));
 }
